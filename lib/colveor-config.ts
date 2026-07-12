@@ -6,7 +6,7 @@ export const SITE = {
   name: "Colveor",
   tagline: "Build the foundation once. Focus on your product.",
   description:
-    "An opinionated TypeScript and NestJS ecosystem providing reusable backend foundations and domain infrastructure for production-ready applications.",
+    "An opinionated application development ecosystem providing reusable foundations across backend services, financial infrastructure, Flutter applications and developer tooling.",
   github: "https://github.com/colveor",
 }
 
@@ -23,12 +23,17 @@ export const VERSIONS: Version[] = [
 
 export const CURRENT_VERSION = VERSIONS[0]
 
-export type PackageId = "core" | "fintech" | "devkit"
+export type PackageId = "core" | "fintech" | "flutter" | "devkit"
 
 export type Package = {
   id: PackageId
   name: string
+  /** Registry identifier (npm scope or pub.dev name). */
   npm: string
+  /** Which registry the package is published to. */
+  registry: "npm" | "pub"
+  /** Runtime platform the package targets. */
+  platform: "backend" | "mobile" | "tooling"
   short: string
   description: string
   layer: number // 0 = foundation
@@ -39,6 +44,8 @@ export const PACKAGES: Package[] = [
     id: "core",
     name: "Core",
     npm: "@colveor/core",
+    registry: "npm",
+    platform: "backend",
     short: "Foundational backend infrastructure",
     description:
       "Identity, authentication, RBAC, settings, notifications, files and admin capabilities — the foundation every application shares.",
@@ -48,15 +55,30 @@ export const PACKAGES: Package[] = [
     id: "fintech",
     name: "Fintech",
     npm: "@colveor/fintech",
+    registry: "npm",
+    platform: "backend",
     short: "Financial domain infrastructure",
     description:
       "Wallets, balances, transactions, currencies, exchange rates and payment provider infrastructure built on top of Core.",
     layer: 1,
   },
   {
+    id: "flutter",
+    name: "Flutter",
+    npm: "colveor",
+    registry: "pub",
+    platform: "mobile",
+    short: "Flutter application foundation",
+    description:
+      "Reusable mobile application infrastructure — bootstrap, UI toolkit, theming, networking, routing, state and authentication foundations.",
+    layer: 0,
+  },
+  {
     id: "devkit",
     name: "DevKit",
     npm: "@colveor/devkit",
+    registry: "npm",
+    platform: "tooling",
     short: "Shared developer tooling & standards",
     description:
       "TypeScript, ESLint, Prettier, testing, release, CI/CD and documentation tooling shared across the ecosystem.",
@@ -139,6 +161,25 @@ export const DOCS_NAV: NavGroup[] = [
     ],
   },
   {
+    title: "Flutter",
+    package: "flutter",
+    items: [
+      { title: "Overview", slug: "flutter/overview" },
+      { title: "Installation", slug: "flutter/installation" },
+      { title: "Project Setup", slug: "flutter/project-setup" },
+      { title: "Architecture", slug: "flutter/architecture" },
+      { title: "Bootstrap", slug: "flutter/bootstrap" },
+      { title: "Configuration", slug: "flutter/configuration" },
+      { title: "Routing", slug: "flutter/routing" },
+      { title: "Networking", slug: "flutter/networking" },
+      { title: "State Management", slug: "flutter/state-management" },
+      { title: "UI Toolkit", slug: "flutter/ui-toolkit" },
+      { title: "Theming", slug: "flutter/theming" },
+      { title: "Authentication", slug: "flutter/authentication" },
+      { title: "Backend Integration", slug: "flutter/backend-integration" },
+    ],
+  },
+  {
     title: "DevKit",
     package: "devkit",
     items: [
@@ -157,8 +198,9 @@ export const DOCS_NAV: NavGroup[] = [
     items: [
       { title: "Core API", slug: "api/core" },
       { title: "Fintech API", slug: "api/fintech" },
+      { title: "Flutter API", slug: "api/flutter" },
       { title: "Authentication", slug: "api/authentication" },
-      { title: "Error Responses", slug: "api/errors" },
+      { title: "Error Handling", slug: "api/errors" },
     ],
   },
   {

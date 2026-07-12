@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation"
 export function PackageSelector({ active }: { active?: PackageId }) {
   const router = useRouter()
   return (
-    <div className="grid grid-cols-3 gap-1 rounded-lg border border-border bg-muted/40 p-1">
+    <div className="grid grid-cols-2 gap-1 rounded-lg border border-border bg-muted/40 p-1">
       {PACKAGES.map((pkg) => {
         const isActive = pkg.id === active
         return (

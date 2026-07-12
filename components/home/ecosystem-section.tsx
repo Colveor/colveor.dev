@@ -11,17 +11,17 @@ export function EcosystemSection() {
             The ecosystem
           </p>
           <h2 className="mt-3 text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-            Three composable packages, one coherent foundation
+            Four composable packages, one coherent ecosystem
           </h2>
           <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
             Colveor is organized into focused packages. Core provides the shared
-            application foundation, Fintech layers financial capabilities on top
-            of it, and DevKit keeps development standards consistent across the
-            ecosystem.
+            backend foundation, Fintech layers financial capabilities on top of
+            it, the Flutter package brings a matching mobile foundation, and
+            DevKit keeps development standards consistent across the ecosystem.
           </p>
         </div>
 
-        <div id="packages" className="mt-10 grid gap-4 md:grid-cols-3">
+        <div id="packages" className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {PACKAGES.map((pkg) => (
             <PackageCard key={pkg.id} pkg={pkg} />
           ))}

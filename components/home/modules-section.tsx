@@ -3,7 +3,11 @@ import {
   Bell,
   Coins,
   Fingerprint,
+  LayoutTemplate,
+  Network,
+  Palette,
   Plug,
+  Rocket,
   Settings2,
   ShieldCheck,
   Wallet,
@@ -65,6 +69,38 @@ const MODULES = [
     icon: Plug,
     href: "/docs/fintech/providers",
     badge: "fintech",
+  },
+  {
+    title: "UI Toolkit",
+    description:
+      "Reusable Flutter components — inputs, buttons, overlays, feedback and multi-step page flows.",
+    icon: LayoutTemplate,
+    href: "/docs/flutter/ui-toolkit",
+    badge: "flutter",
+  },
+  {
+    title: "App Bootstrap",
+    description:
+      "Application bootstrap, configuration, environment management and initialization hooks for Flutter apps.",
+    icon: Rocket,
+    href: "/docs/flutter/bootstrap",
+    badge: "flutter",
+  },
+  {
+    title: "Theming",
+    description:
+      "Customizable theme system with colors, typography, sizes and light and dark modes.",
+    icon: Palette,
+    href: "/docs/flutter/theming",
+    badge: "flutter",
+  },
+  {
+    title: "Mobile Networking",
+    description:
+      "API client foundation with Dio integration, interceptors, error handling and secure token storage.",
+    icon: Network,
+    href: "/docs/flutter/networking",
+    badge: "flutter",
   },
 ]
 

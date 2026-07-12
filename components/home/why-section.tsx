@@ -14,7 +14,7 @@ const REASONS = [
   {
     icon: PackageCheck,
     title: "Modular packages",
-    body: "Adopt only what you need. Start with Core, add Fintech when your product needs financial primitives, and lean on DevKit for tooling.",
+    body: "Adopt only what you need. Start with Core, add Fintech for financial primitives, reach for the Flutter package on mobile, and lean on DevKit for tooling.",
   },
   {
     icon: Settings2,

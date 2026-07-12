@@ -94,6 +94,7 @@ function Group({ group, pathname }: { group: NavGroup; pathname: string }) {
 function activePackage(pathname: string): PackageId | undefined {
   if (pathname.startsWith("/docs/core")) return "core"
   if (pathname.startsWith("/docs/fintech")) return "fintech"
+  if (pathname.startsWith("/docs/flutter")) return "flutter"
   if (pathname.startsWith("/docs/devkit")) return "devkit"
   return undefined
 }

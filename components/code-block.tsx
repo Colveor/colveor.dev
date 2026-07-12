@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 import { Check, Copy } from "lucide-react"
 import { Fragment, useMemo, useState } from "react"
 
-type Lang = "ts" | "tsx" | "bash" | "json" | "text"
+type Lang = "ts" | "tsx" | "dart" | "bash" | "json" | "text"
 
 const KEYWORDS = new Set([
   "import", "export", "from", "const", "let", "var", "function", "return",
@@ -16,15 +16,27 @@ const KEYWORDS = new Set([
   "true", "false", "boolean", "string", "number", "any", "unknown", "never",
 ])
 
+const DART_KEYWORDS = new Set([
+  "import", "export", "library", "part", "const", "final", "var", "void",
+  "return", "class", "abstract", "extends", "implements", "with", "mixin",
+  "new", "async", "await", "if", "else", "for", "while", "in", "this",
+  "enum", "as", "super", "static", "get", "set", "yield", "throw", "try",
+  "catch", "finally", "switch", "case", "break", "continue", "is", "late",
+  "required", "factory", "override", "null", "true", "false", "bool",
+  "String", "int", "double", "num", "dynamic", "Future", "Stream", "void",
+  "typedef", "on", "rethrow", "show", "hide", "deferred",
+])
+
 type Token = { type: string; value: string }
 
 function tokenize(code: string, lang: Lang): Token[] {
   if (lang === "bash" || lang === "text") return tokenizeBash(code)
   if (lang === "json") return tokenizeJson(code)
-  return tokenizeTs(code)
+  if (lang === "dart") return tokenizeTs(code, DART_KEYWORDS)
+  return tokenizeTs(code, KEYWORDS)
 }
 
-function tokenizeTs(code: string): Token[] {
+function tokenizeTs(code: string, keywords: Set<string> = KEYWORDS): Token[] {
   const tokens: Token[] = []
   const re =
     /(\/\/[^\n]*|\/\*[\s\S]*?\*\/)|(`(?:\\.|[^`\\])*`|'(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*")|(\b\d+(?:\.\d+)?\b)|([A-Za-z_$][\w$]*)(\s*\()?|([{}()[\].,;:<>=+\-*/&|!?@]+)|(\s+)/g
@@ -34,7 +46,7 @@ function tokenizeTs(code: string): Token[] {
     else if (m[2]) tokens.push({ type: "string", value: m[2] })
     else if (m[3]) tokens.push({ type: "number", value: m[3] })
     else if (m[4]) {
-      if (KEYWORDS.has(m[4])) tokens.push({ type: "keyword", value: m[4] })
+      if (keywords.has(m[4])) tokens.push({ type: "keyword", value: m[4] })
       else if (m[5]) tokens.push({ type: "func", value: m[4] })
       else if (/^[A-Z]/.test(m[4])) tokens.push({ type: "property", value: m[4] })
       else tokens.push({ type: "plain", value: m[4] })
@@ -105,6 +117,7 @@ const COLOR: Record<string, string> = {
 const LANG_LABEL: Record<Lang, string> = {
   ts: "TypeScript",
   tsx: "TypeScript",
+  dart: "Dart",
   bash: "Bash",
   json: "JSON",
   text: "Text",

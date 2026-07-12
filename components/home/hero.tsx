@@ -26,7 +26,7 @@ export function Hero() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/40 px-3 py-1 text-xs text-muted-foreground">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
-            <span className="font-mono">TypeScript · NestJS ecosystem</span>
+            <span className="font-mono">TypeScript · NestJS · Flutter</span>
             <span className="text-border">·</span>
             <span>v0.x</span>
           </div>
@@ -36,10 +36,10 @@ export function Hero() {
           </h1>
 
           <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Colveor provides opinionated backend foundations and reusable domain
-            infrastructure for TypeScript and NestJS applications — so you stop
-            rebuilding authentication, RBAC, settings, and financial primitives
-            for every project.
+            Colveor is an opinionated ecosystem of reusable foundations across
+            backend services, financial infrastructure and Flutter apps — so you
+            stop rebuilding authentication, RBAC, wallets and mobile plumbing for
+            every project.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">

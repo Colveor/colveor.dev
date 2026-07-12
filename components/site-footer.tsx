@@ -8,6 +8,7 @@ const COLUMNS = [
     links: [
       { label: "@colveor/core", href: "/docs/core/overview" },
       { label: "@colveor/fintech", href: "/docs/fintech/overview" },
+      { label: "colveor (Flutter)", href: "/docs/flutter/overview" },
       { label: "@colveor/devkit", href: "/docs/devkit/overview" },
     ],
   },
@@ -37,8 +38,8 @@ export function SiteFooter() {
         <div className="max-w-xs">
           <ColveorLogo />
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Opinionated backend foundations and reusable domain infrastructure
-            for TypeScript and NestJS.
+            Opinionated, reusable application foundations across backend
+            services, financial infrastructure and Flutter apps.
           </p>
           <p className="mt-4 font-mono text-xs text-muted-foreground">
             An evolving open-source ecosystem.
