@@ -67,10 +67,10 @@ async function readSource(source: DocSource, name: string): Promise<string> {
   const root = localRoot(source)
   if (root) return readFile(path.join(root, file), "utf8")
 
-  const token = process.env.GITHUB_TOKEN
+  const token = process.env.COLVEOR_DOCS_TOKEN
   if (!token) {
     throw new Error(
-      `GITHUB_TOKEN is required to fetch ${source.repo}/${file}. ` +
+      `COLVEOR_DOCS_TOKEN is required to fetch ${source.repo}/${file}. ` +
         "Set it, or set COLVEOR_DOCS_LOCAL to read from a local checkout.",
     )
   }
