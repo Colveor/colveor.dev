@@ -75,7 +75,7 @@ const MODULES = [
     description:
       "Reusable Flutter components — inputs, buttons, overlays, feedback and multi-step page flows.",
     icon: LayoutTemplate,
-    href: "/docs/flutter/ui-toolkit",
+    href: "/docs/flutter/ui/widgets",
     badge: "flutter",
   },
   {
@@ -83,7 +83,7 @@ const MODULES = [
     description:
       "Application bootstrap, configuration, environment management and initialization hooks for Flutter apps.",
     icon: Rocket,
-    href: "/docs/flutter/bootstrap",
+    href: "/docs/flutter/colveor/bootstrap",
     badge: "flutter",
   },
   {
@@ -91,7 +91,7 @@ const MODULES = [
     description:
       "Customizable theme system with colors, typography, sizes and light and dark modes.",
     icon: Palette,
-    href: "/docs/flutter/theming",
+    href: "/docs/flutter/ui/theming",
     badge: "flutter",
   },
   {
@@ -99,7 +99,7 @@ const MODULES = [
     description:
       "API client foundation with Dio integration, interceptors, error handling and secure token storage.",
     icon: Network,
-    href: "/docs/flutter/networking",
+    href: "/docs/flutter/colveor/networking",
     badge: "flutter",
   },
 ]
